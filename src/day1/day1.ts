@@ -1,9 +1,15 @@
-import { sum } from './../utils'
+import { sum } from '../utils'
 
 /*
   ============== part1 ==============
 */
-export function findElfCarryingTheMostCalories(data) {
+type FoodCalories = number
+type ElfCarryingCalories = FoodCalories[]
+type AllElvesCarryingCalories = ElfCarryingCalories[]
+
+export function findElfCarryingTheMostCalories(
+  data: AllElvesCarryingCalories
+): number {
   let max = 0
 
   data.forEach(el => {
@@ -21,7 +27,10 @@ export function findElfCarryingTheMostCalories(data) {
   ============== part2 ==============
 */
 
-export function findTopElvesCarryingTheMostCalories(data, amount = 3) {
+export function findTopElvesCarryingTheMostCalories(
+  data: AllElvesCarryingCalories,
+  amount = 3
+): number {
   let topLevelElves = new Array(amount)
   topLevelElves.fill(0)
 

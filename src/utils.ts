@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-export function readFile(pathFile) {
+export function readFile(pathFile: string): number[][] {
   const pathInput = path.resolve(pathFile)
 
   const inputString = fs.readFileSync(pathInput, 'utf-8')
@@ -12,7 +12,7 @@ export function readFile(pathFile) {
   return inputArray
 }
 
-export function readFileToString(pathFile) {
+export function readFileToString(pathFile: string): string[][] {
   const pathInput = path.resolve(pathFile)
 
   const inputString = fs.readFileSync(pathInput, 'utf-8')
@@ -21,4 +21,4 @@ export function readFileToString(pathFile) {
   return inputArray
 }
 
-export const sum = (acc, item) => acc + item
+export const sum = (acc: number, item: number): number => acc + item

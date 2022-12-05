@@ -3,7 +3,7 @@ import {
   findElfCarryingTheMostCalories,
   findTopElvesCarryingTheMostCalories,
 } from './day1.js'
-import { readFile } from './../utils.js'
+import { readFile } from '../utils.js'
 
 const inputPath = 'src/day1/input.txt'
 
