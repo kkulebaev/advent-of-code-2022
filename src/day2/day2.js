@@ -63,34 +63,30 @@ function getScoreOfGame(oppShape, yourShape) {
 
   if (oppShape === yourShape) return ResultScore.draw + yourShapeScore
 
-  if (oppShape === RockPaperScissors.Rock) {
-    if (yourShape === RockPaperScissors.Paper) {
-      return ResultScore.win + yourShapeScore
-    }
+  switch (oppShape) {
+    case RockPaperScissors.Rock:
+      switch (yourShape) {
+        case RockPaperScissors.Paper:
+          return ResultScore.win + yourShapeScore
+        case RockPaperScissors.Scissors:
+          return ResultScore.lose + yourShapeScore
+      }
 
-    if (yourShape === RockPaperScissors.Scissors) {
-      return ResultScore.lose + yourShapeScore
-    }
-  }
+    case RockPaperScissors.Paper:
+      switch (yourShape) {
+        case RockPaperScissors.Scissors:
+          return ResultScore.win + yourShapeScore
+        case RockPaperScissors.Rock:
+          return ResultScore.lose + yourShapeScore
+      }
 
-  if (oppShape === RockPaperScissors.Paper) {
-    if (yourShape === RockPaperScissors.Scissors) {
-      return ResultScore.win + yourShapeScore
-    }
-
-    if (yourShape === RockPaperScissors.Rock) {
-      return ResultScore.lose + yourShapeScore
-    }
-  }
-
-  if (oppShape === RockPaperScissors.Scissors) {
-    if (yourShape === RockPaperScissors.Rock) {
-      return ResultScore.win + yourShapeScore
-    }
-
-    if (yourShape === RockPaperScissors.Paper) {
-      return ResultScore.lose + yourShapeScore
-    }
+    case RockPaperScissors.Scissors:
+      switch (yourShape) {
+        case RockPaperScissors.Rock:
+          return ResultScore.win + yourShapeScore
+        case RockPaperScissors.Paper:
+          return ResultScore.lose + yourShapeScore
+      }
   }
 }
 
