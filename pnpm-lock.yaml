@@ -1,9 +1,11 @@
 lockfileVersion: 5.4
 
 specifiers:
+  typescript: ^4.9.3
   vitest: ^0.25.3
 
 devDependencies:
+  typescript: 4.9.3
   vitest: 0.25.3
 
 packages:
@@ -427,6 +429,12 @@ packages:
   /type-detect/4.0.8:
     resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
     engines: {node: '>=4'}
+    dev: true
+
+  /typescript/4.9.3:
+    resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
     dev: true
 
   /vite/3.2.5_@types+node@18.11.10:
