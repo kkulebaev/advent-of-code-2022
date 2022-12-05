@@ -1,4 +1,4 @@
-import type { Score, ShapePairs } from './constants'
+import type { ShapePairs } from './constants'
 
 import { describe, expect, it } from 'vitest'
 import { totalScoreOfStrategyGuide, totalScoreOfStrategyGuide2 } from './day2'
