@@ -1,15 +1,13 @@
+import type { FoodCalories, AllElvesCarryingCalories } from './constants'
 import { sum } from '../utils'
 
 /*
   ============== part1 ==============
 */
-type FoodCalories = number
-type ElfCarryingCalories = FoodCalories[]
-type AllElvesCarryingCalories = ElfCarryingCalories[]
 
 export function findElfCarryingTheMostCalories(
   data: AllElvesCarryingCalories
-): number {
+): FoodCalories {
   let max = 0
 
   data.forEach(el => {
@@ -30,9 +28,8 @@ export function findElfCarryingTheMostCalories(
 export function findTopElvesCarryingTheMostCalories(
   data: AllElvesCarryingCalories,
   amount = 3
-): number {
-  let topLevelElves = new Array(amount)
-  topLevelElves.fill(0)
+): FoodCalories {
+  let topLevelElves: FoodCalories[] = new Array(amount).fill(0)
 
   data.forEach(el => {
     const amount = el.reduce(sum, 0)

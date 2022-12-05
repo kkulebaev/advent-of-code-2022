@@ -1,3 +1,5 @@
+export type Score = number
+
 export enum ResultGame {
   lose = 'lose',
   draw = 'draw',
@@ -22,24 +24,24 @@ export enum RockPaperScissorsNum {
   Scissors = 3,
 }
 
-export const OpponentShape = {
+export const EncryptedOpponentShape = {
   A: RockPaperScissors.Rock,
   B: RockPaperScissors.Paper,
   C: RockPaperScissors.Scissors,
 } as const
 
-export const YourShape = {
+export const EncryptedYourShape = {
   X: RockPaperScissors.Rock,
   Y: RockPaperScissors.Paper,
   Z: RockPaperScissors.Scissors,
 } as const
 
-export const YourShape2 = {
+export const EncryptedResultGame = {
   X: ResultGame.lose,
   Y: ResultGame.draw,
   Z: ResultGame.win,
 } as const
 
-type OpponentShapeKeys = keyof typeof OpponentShape
-type YourShapeKeys = keyof typeof YourShape
+type OpponentShapeKeys = keyof typeof EncryptedOpponentShape
+type YourShapeKeys = keyof typeof EncryptedYourShape
 export type ShapePairs = [OpponentShapeKeys, YourShapeKeys]

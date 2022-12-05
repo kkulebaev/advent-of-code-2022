@@ -1,27 +1,26 @@
+import type { Score, ShapePairs } from './constants'
 import {
   ResultScore,
   RockPaperScissors,
   RockPaperScissorsNum,
-  OpponentShape,
-  YourShape,
-  YourShape2,
+  EncryptedOpponentShape,
+  EncryptedYourShape,
+  EncryptedResultGame,
   ResultGame,
-  type ShapePairs,
 } from './constants'
 
 /*
   ============== part1 ==============
 */
 
-export function totalScoreOfStrategyGuide(data: ShapePairs[]): number {
+export function totalScoreOfStrategyGuide(data: ShapePairs[]): Score {
   let totalScore = 0
 
-  data.forEach(el => {
-    const shape1 = el[0]
-    const shape2 = el[1]
+  data.forEach(shapePairs => {
+    const [encKey1, encKey2] = shapePairs
 
-    const oppShape = OpponentShape[shape1]
-    const yourShape = YourShape[shape2]
+    const oppShape = EncryptedOpponentShape[encKey1]
+    const yourShape = EncryptedYourShape[encKey2]
 
     const score = getScoreOfGame(oppShape, yourShape)
     totalScore += score
@@ -33,7 +32,7 @@ export function totalScoreOfStrategyGuide(data: ShapePairs[]): number {
 function getScoreOfGame(
   oppShape: RockPaperScissors,
   yourShape: RockPaperScissors
-): number {
+): Score {
   const yourShapeScore = RockPaperScissorsNum[yourShape]
 
   if (oppShape === yourShape) return ResultScore.draw + yourShapeScore
@@ -72,15 +71,14 @@ function getScoreOfGame(
   ============== part2 ==============
 */
 
-export function totalScoreOfStrategyGuide2(data: ShapePairs[]) {
+export function totalScoreOfStrategyGuide2(data: ShapePairs[]): Score {
   let totalScore = 0
 
-  data.forEach(el => {
-    const shape1 = el[0]
-    const shape2 = el[1]
+  data.forEach(shapePairs => {
+    const [encKey1, encKey2] = shapePairs
 
-    const oppShape = OpponentShape[shape1]
-    const yourShape = YourShape2[shape2]
+    const oppShape = EncryptedOpponentShape[encKey1]
+    const yourShape = EncryptedResultGame[encKey2]
 
     const score = getScoreOfGame2(oppShape, yourShape)
     totalScore += score
@@ -92,7 +90,7 @@ export function totalScoreOfStrategyGuide2(data: ShapePairs[]) {
 function getScoreOfGame2(
   oppShape: RockPaperScissors,
   result: ResultGame
-): number {
+): Score {
   switch (result) {
     case ResultGame.draw:
       return ResultScore.draw + RockPaperScissorsNum[oppShape]
