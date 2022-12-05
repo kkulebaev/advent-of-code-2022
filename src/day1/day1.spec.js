@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { findElfCarryingTheMostCalories, findTopElvesCarryingTheMostCalories } from './day1.js'
+import {
+  findElfCarryingTheMostCalories,
+  findTopElvesCarryingTheMostCalories,
+} from './day1.js'
 import { readFile } from './../utils.js'
 
 const inputPath = 'src/day1/input.txt'
