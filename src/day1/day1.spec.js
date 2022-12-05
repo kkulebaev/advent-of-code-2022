@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { findElfCarryingTheMostCalories, findTheTopElvesCarryingTheMostCalories } from './day1.js'
+import { findElfCarryingTheMostCalories, findTopElvesCarryingTheMostCalories } from './day1.js'
 import { readFile } from './../utils.js'
 
 const inputPath = 'src/day1/input.txt'
@@ -13,7 +13,7 @@ describe('Day 1 (puzzle)', () => {
   })
 
   it('part 2 should have answer', () => {
-    const result = findTheTopElvesCarryingTheMostCalories(data)
+    const result = findTopElvesCarryingTheMostCalories(data)
     expect(result).toEqual(210957)
   })
 })

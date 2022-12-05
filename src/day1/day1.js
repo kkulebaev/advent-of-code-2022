@@ -21,7 +21,7 @@ export function findElfCarryingTheMostCalories(data) {
   ============== part2 ==============
 */
 
-export function findTheTopElvesCarryingTheMostCalories(data, amount = 3) {
+export function findTopElvesCarryingTheMostCalories(data, amount = 3) {
   let topLevelElves = new Array(amount)
   topLevelElves.fill(0)
 
