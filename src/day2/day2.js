@@ -113,27 +113,27 @@ export function totalScoreOfStrategyGuide2(data) {
 }
 
 function getScoreOfGame2(oppShape, result) {
-  if (result === ResultGame.draw) return ResultScore.draw + RockPaperScissorsNum[oppShape]
+  switch (result) {
+    case ResultGame.draw:
+      return ResultScore.draw + RockPaperScissorsNum[oppShape]
 
-  if (result === ResultGame.win) {
-    switch (oppShape) {
-      case RockPaperScissors.Rock:
-        return ResultScore.win + RockPaperScissorsNum.Paper
-      case RockPaperScissors.Paper:
-        return ResultScore.win + RockPaperScissorsNum.Scissors
-      case RockPaperScissors.Scissors:
-        return ResultScore.win + RockPaperScissorsNum.Rock
-    }
-  }
-
-  if (result === ResultGame.lose) {
-    switch (oppShape) {
-      case RockPaperScissors.Rock:
-        return ResultScore.lose + RockPaperScissorsNum.Scissors
-      case RockPaperScissors.Paper:
-        return ResultScore.lose + RockPaperScissorsNum.Rock
-      case RockPaperScissors.Scissors:
-        return ResultScore.lose + RockPaperScissorsNum.Paper
-    }
+    case ResultGame.win:
+      switch (oppShape) {
+        case RockPaperScissors.Rock:
+          return ResultScore.win + RockPaperScissorsNum.Paper
+        case RockPaperScissors.Paper:
+          return ResultScore.win + RockPaperScissorsNum.Scissors
+        case RockPaperScissors.Scissors:
+          return ResultScore.win + RockPaperScissorsNum.Rock
+      }
+    case ResultGame.lose:
+      switch (oppShape) {
+        case RockPaperScissors.Rock:
+          return ResultScore.lose + RockPaperScissorsNum.Scissors
+        case RockPaperScissors.Paper:
+          return ResultScore.lose + RockPaperScissorsNum.Rock
+        case RockPaperScissors.Scissors:
+          return ResultScore.lose + RockPaperScissorsNum.Paper
+      }
   }
 }
