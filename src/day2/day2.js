@@ -102,7 +102,7 @@ export function totalScoreOfStrategyGuide2(data) {
   let totalScore = 0
 
   data.forEach(el => {
-    const oppShape = opponentShape[el[0]] //?
+    const oppShape = opponentShape[el[0]]
     const youShape = yourShape2[el[1]]
 
     const score = getScoreOfGame2(oppShape, youShape)
