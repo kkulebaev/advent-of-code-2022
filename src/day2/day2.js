@@ -1,44 +1,12 @@
-const ResultGame = {
-  lose: 'lose',
-  draw: 'draw',
-  win: 'win',
-}
-
-const ResultScore = {
-  lose: 0,
-  draw: 3,
-  win: 6,
-}
-
-const RockPaperScissors = {
-  Rock: 'Rock',
-  Paper: 'Paper',
-  Scissors: 'Scissors',
-}
-
-const RockPaperScissorsNum = {
-  Rock: 1,
-  Paper: 2,
-  Scissors: 3,
-}
-
-const opponentShape = {
-  A: RockPaperScissors.Rock,
-  B: RockPaperScissors.Paper,
-  C: RockPaperScissors.Scissors,
-}
-
-const yourShape = {
-  X: RockPaperScissors.Rock,
-  Y: RockPaperScissors.Paper,
-  Z: RockPaperScissors.Scissors,
-}
-
-const yourShape2 = {
-  X: ResultGame.lose,
-  Y: ResultGame.draw,
-  Z: ResultGame.win,
-}
+import {
+  ResultGame,
+  ResultScore,
+  RockPaperScissors,
+  RockPaperScissorsNum,
+  opponentShape,
+  yourShape,
+  yourShape2,
+} from './constants.js'
 
 /*
   ============== part1 ==============
