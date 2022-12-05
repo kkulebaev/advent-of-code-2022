@@ -1,9 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import {
-  totalScoreOfStrategyGuide,
-  totalScoreOfStrategyGuide2,
-} from './day2.js'
-import { readFileToString } from './../utils.js'
+import { totalScoreOfStrategyGuide, totalScoreOfStrategyGuide2 } from './day2'
+import { readFileToString } from './../utils'
 
 const inputPath = 'src/day2/input.txt'
 

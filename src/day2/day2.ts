@@ -1,32 +1,39 @@
 import {
-  ResultGame,
   ResultScore,
   RockPaperScissors,
   RockPaperScissorsNum,
-  opponentShape,
-  yourShape,
-  yourShape2,
-} from './constants.js'
+  OpponentShape,
+  YourShape,
+  YourShape2,
+  ResultGame,
+  type ShapePairs,
+} from './constants'
 
 /*
   ============== part1 ==============
 */
 
-export function totalScoreOfStrategyGuide(data) {
+export function totalScoreOfStrategyGuide(data: ShapePairs[]): number {
   let totalScore = 0
 
   data.forEach(el => {
-    const oppShape = opponentShape[el[0]]
-    const youShape = yourShape[el[1]]
+    const shape1 = el[0]
+    const shape2 = el[1]
 
-    const score = getScoreOfGame(oppShape, youShape)
+    const oppShape = OpponentShape[shape1]
+    const yourShape = YourShape[shape2]
+
+    const score = getScoreOfGame(oppShape, yourShape)
     totalScore += score
   })
 
   return totalScore
 }
 
-function getScoreOfGame(oppShape, yourShape) {
+function getScoreOfGame(
+  oppShape: RockPaperScissors,
+  yourShape: RockPaperScissors
+): number {
   const yourShapeScore = RockPaperScissorsNum[yourShape]
 
   if (oppShape === yourShape) return ResultScore.draw + yourShapeScore
@@ -55,6 +62,9 @@ function getScoreOfGame(oppShape, yourShape) {
         case RockPaperScissors.Paper:
           return ResultScore.lose + yourShapeScore
       }
+
+    default:
+      throw Error('Unknown values')
   }
 }
 
@@ -62,21 +72,27 @@ function getScoreOfGame(oppShape, yourShape) {
   ============== part2 ==============
 */
 
-export function totalScoreOfStrategyGuide2(data) {
+export function totalScoreOfStrategyGuide2(data: ShapePairs[]) {
   let totalScore = 0
 
   data.forEach(el => {
-    const oppShape = opponentShape[el[0]]
-    const youShape = yourShape2[el[1]]
+    const shape1 = el[0]
+    const shape2 = el[1]
 
-    const score = getScoreOfGame2(oppShape, youShape)
+    const oppShape = OpponentShape[shape1]
+    const yourShape = YourShape2[shape2]
+
+    const score = getScoreOfGame2(oppShape, yourShape)
     totalScore += score
   })
 
   return totalScore
 }
 
-function getScoreOfGame2(oppShape, result) {
+function getScoreOfGame2(
+  oppShape: RockPaperScissors,
+  result: ResultGame
+): number {
   switch (result) {
     case ResultGame.draw:
       return ResultScore.draw + RockPaperScissorsNum[oppShape]
@@ -90,6 +106,7 @@ function getScoreOfGame2(oppShape, result) {
         case RockPaperScissors.Scissors:
           return ResultScore.win + RockPaperScissorsNum.Rock
       }
+
     case ResultGame.lose:
       switch (oppShape) {
         case RockPaperScissors.Rock:
@@ -99,5 +116,8 @@ function getScoreOfGame2(oppShape, result) {
         case RockPaperScissors.Scissors:
           return ResultScore.lose + RockPaperScissorsNum.Paper
       }
+
+    default:
+      throw Error('Unknown values')
   }
 }
