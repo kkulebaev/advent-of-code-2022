@@ -1,9 +1,3 @@
-import { readFile, sum } from './../utils.js'
-
-const inputPath = 'src/day1/input.txt'
-
-const data = readFile(inputPath)
-
 /*
   ============== part1 ==============
 */
@@ -47,6 +41,3 @@ export function findTheTopElvesCarryingTheMostCalories(data, amount = 3) {
 
   return result
 }
-
-console.log(findElfCarryingTheMostCalories(data))
-console.log(findTheTopElvesCarryingTheMostCalories(data))
