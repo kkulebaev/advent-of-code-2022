@@ -3,11 +3,11 @@ import {
   findElfCarryingTheMostCalories,
   findTopElvesCarryingTheMostCalories,
 } from './day1.js'
-import { readFile } from '../utils.js'
+import { readFileDay1 } from '../utils.js'
 
 const inputPath = 'src/day1/input.txt'
 
-const data = readFile(inputPath)
+const data = readFileDay1(inputPath)
 
 describe('Day 1 (puzzle)', () => {
   it('part 1 should have answer', () => {

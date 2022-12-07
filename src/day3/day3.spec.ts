@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import { sumPrioritiesItemTypes } from './day3'
-import { readDay3 } from '../utils'
+import { readFileDay3 } from '../utils'
 
 const inputPath = 'src/day3/input.txt'
 
-const data = readDay3(inputPath)
+const data = readFileDay3(inputPath)
 
 describe('Day 3 (puzzle)', () => {
   it('part 1 should have answer', () => {

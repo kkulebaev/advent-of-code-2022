@@ -1,12 +1,10 @@
-import type { ShapePairs } from './constants'
-
 import { describe, expect, it } from 'vitest'
 import { totalScoreOfStrategyGuide, totalScoreOfStrategyGuide2 } from './day2'
-import { readFileToString } from '../utils'
+import { readFileDay2 } from '../utils'
 
 const inputPath = 'src/day2/input.txt'
 
-const data = readFileToString(inputPath) as ShapePairs[]
+const data = readFileDay2(inputPath)
 
 describe('Day 2 (puzzle)', () => {
   it('part 1 should have answer', () => {

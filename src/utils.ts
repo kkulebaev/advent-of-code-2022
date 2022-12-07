@@ -1,8 +1,10 @@
 import fs from 'fs'
 import path from 'path'
-import { EncryptedString } from './day3/constants'
+import type { AllElvesCarryingCalories } from './day1/constants'
+import type { ShapePairs } from './day2/constants'
+import type { EncryptedString } from './day3/constants'
 
-export function readFile(pathFile: string): number[][] {
+export function readFileDay1(pathFile: string): AllElvesCarryingCalories {
   const pathInput = path.resolve(pathFile)
 
   const inputString = fs.readFileSync(pathInput, 'utf-8')
@@ -13,16 +15,18 @@ export function readFile(pathFile: string): number[][] {
   return inputArray
 }
 
-export function readFileToString(pathFile: string): string[][] {
+export function readFileDay2(pathFile: string): ShapePairs[] {
   const pathInput = path.resolve(pathFile)
 
   const inputString = fs.readFileSync(pathInput, 'utf-8')
-  const inputArray = inputString.split('\n').map(data => data.split(' '))
+  const inputArray = inputString
+    .split('\n')
+    .map(data => data.split(' ')) as ShapePairs[]
 
   return inputArray
 }
 
-export function readDay3(pathFile: string): EncryptedString[] {
+export function readFileDay3(pathFile: string): EncryptedString[] {
   const pathInput = path.resolve(pathFile)
 
   const inputString = fs.readFileSync(pathInput, 'utf-8')
