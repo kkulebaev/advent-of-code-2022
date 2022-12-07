@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getAmountRangeFullyContain } from './day4'
+import { getAmountRangeFullyContain, getAmountRangePartContain } from './day4'
 import { readFileDay4 } from '../utils'
 
 const inputPath = 'src/day4/input.txt'
@@ -12,8 +12,8 @@ describe('Day 4 (puzzle)', () => {
     expect(result).toEqual(413)
   })
 
-  it.todo('part 2 should have answer', () => {
-    const result = getAmountRangeFullyContain(data)
-    expect(result).toEqual(2567)
+  it('part 2 should have answer', () => {
+    const result = getAmountRangePartContain(data)
+    expect(result).toEqual(806)
   })
 })
