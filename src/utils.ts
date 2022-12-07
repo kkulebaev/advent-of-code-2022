@@ -36,3 +36,14 @@ export function readFileDay3(pathFile: string): EncryptedString[] {
 }
 
 export const sum = (acc: number, item: number): number => acc + item
+
+export const chunkedArray = <T>(array: Array<T>, size: number) => {
+  let chunckedArray = []
+
+  for (let i = 0; i < array.length; i += size) {
+    const chunk = array.slice(i, i + size)
+    chunckedArray.push(chunk)
+  }
+
+  return chunckedArray
+}

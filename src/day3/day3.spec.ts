@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { sumPrioritiesItemTypes } from './day3'
+import { sumPrioritiesItemTypes, sumPrioritiesItemTypes2 } from './day3'
 import { readFileDay3 } from '../utils'
 
 const inputPath = 'src/day3/input.txt'
@@ -12,8 +12,8 @@ describe('Day 3 (puzzle)', () => {
     expect(result).toEqual(8072)
   })
 
-  it.todo('part 2 should have answer', () => {
-    // const result = sumPrioritiesItemTypes(data)
-    // expect(result).toEqual(9541)
+  it('part 2 should have answer', () => {
+    const result = sumPrioritiesItemTypes2(data)
+    expect(result).toEqual(2567)
   })
 })
