@@ -1,16 +1,21 @@
-import { EncryptedString, ItemPriorities } from './constants'
+import {
+  EncryptedString,
+  Alphabet,
+  AlphabetLetters,
+  AlphabetLetter,
+} from './constants'
 
 export function sumPrioritiesItemTypes(data: EncryptedString[]): number {
-  const result: Array<keyof typeof ItemPriorities> = []
+  const result: AlphabetLetters = []
 
-  data.forEach((encStr: EncryptedString) => {
+  data.forEach(encStr => {
     const halfLength = encStr.length / 2
 
     const firstHalf = encStr.slice(0, halfLength).split('')
     const secondHalf = encStr.slice(halfLength, encStr.length)
 
     for (let i = 0; i < firstHalf.length; i++) {
-      const letter = firstHalf[i]
+      const letter = firstHalf[i] as AlphabetLetter
 
       const hasLetter = secondHalf.includes(letter)
 
@@ -21,7 +26,7 @@ export function sumPrioritiesItemTypes(data: EncryptedString[]): number {
     }
   })
 
-  const sum = result.reduce((acc, item) => acc + ItemPriorities[item], 0)
+  const sum = result.reduce((acc, item) => acc + Alphabet[item], 0)
 
   return sum
 }
