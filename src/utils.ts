@@ -68,6 +68,11 @@ export function readFileDay5(pathFile: string): Operation[] {
   return inputArray
 }
 
+export function readFileToString(pathFile: string): string {
+  const pathInput = path.resolve(pathFile)
+  return fs.readFileSync(pathInput, 'utf-8')
+}
+
 export const sum = (acc: number, item: number): number => acc + item
 
 export const chunkedArray = <T>(array: Array<T>, size: number) => {
