@@ -7,7 +7,7 @@ const inputPath = 'src/day5/input.txt'
 
 const data = readFileDay5(inputPath)
 
-describe('Day 4 (puzzle)', () => {
+describe('Day 5 (puzzle)', () => {
   it('part 1 should have answer', () => {
     const result = getCrateEndsUpOnTop(INITIAL_STACKS, data)
     expect(result).toEqual('TLNGFGMFN')
