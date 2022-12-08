@@ -12,8 +12,8 @@ describe('Day 6 (puzzle)', () => {
     expect(result).toEqual(1566)
   })
 
-  it.todo('part 2 should have answer', () => {
-    const result = detectStartOfPacketMarker(data)
-    expect(result).toEqual('FGLQJCMBD')
+  it('part 2 should have answer', () => {
+    const result = detectStartOfPacketMarker(data, 14)
+    expect(result).toEqual(2265)
   })
 })
