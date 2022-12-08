@@ -7,8 +7,6 @@ export function getCrateEndsUpOnTop(
   data: StacksOfCrates,
   operations: Operation[]
 ): string {
-  const result: StackOfCrates = []
-
   operations.forEach(operation => {
     for (let i = 0; i < operation.quantity; i++) {
       const topElement = data[operation.from - 1].pop()
@@ -19,8 +17,9 @@ export function getCrateEndsUpOnTop(
     }
   })
 
-  data.forEach(item => {
-    const topElement = item.pop()
+  return data.reduce((acc, item) => acc + item.at(-1), '')
+}
+
 
     if (topElement) {
       result.push(topElement)
