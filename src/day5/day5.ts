@@ -1,12 +1,14 @@
-import type { Operation, StackOfCrates, StacksOfCrates } from './constants'
+import type { Operation, StacksOfCrates } from './constants'
 
 /*
   ============== part1 ==============
 */
 export function getCrateEndsUpOnTop(
-  data: StacksOfCrates,
+  stacks: StacksOfCrates,
   operations: Operation[]
 ): string {
+  const data: StacksOfCrates = JSON.parse(JSON.stringify(stacks))
+
   operations.forEach(operation => {
     for (let i = 0; i < operation.quantity; i++) {
       const topElement = data[operation.from - 1].pop()
