@@ -4,6 +4,7 @@ import type { AllElvesCarryingCalories } from './day1/constants'
 import type { ShapePairs } from './day2/constants'
 import type { EncryptedString } from './day3/constants'
 import type { PairElf } from './day4/constants'
+import type { Operation } from './day5/constants'
 
 export function readFileDay1(pathFile: string): AllElvesCarryingCalories {
   const pathInput = path.resolve(pathFile)
@@ -46,6 +47,22 @@ export function readFileDay4(pathFile: string): PairElf[] {
       return { start: +start, end: +end }
     })
     return { elf1, elf2 }
+  })
+
+  return inputArray
+}
+
+export function readFileDay5(pathFile: string): Operation[] {
+  const pathInput = path.resolve(pathFile)
+
+  const inputString = fs.readFileSync(pathInput, 'utf-8')
+  const inputArray = inputString.split('\n').map(x => {
+    const [quantity, from, to] = x
+      .split(' ')
+      .map(y => +y)
+      .filter(z => z > 0)
+
+    return { quantity, from, to }
   })
 
   return inputArray
