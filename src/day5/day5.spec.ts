@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getCrateEndsUpOnTop } from './day5'
+import { getCrateEndsUpOnTop, getCrateEndsUpOnTop2 } from './day5'
 import { readFileDay5 } from '../utils'
 import { INITIAL_STACKS } from './constants'
 
@@ -13,8 +13,8 @@ describe('Day 4 (puzzle)', () => {
     expect(result).toEqual('TLNGFGMFN')
   })
 
-  it.todo('part 2 should have answer', () => {
-    // const result = getAmountRangePartContain(data)
-    // expect(result).toEqual(806)
+  it('part 2 should have answer', () => {
+    const result = getCrateEndsUpOnTop2(INITIAL_STACKS, data)
+    expect(result).toEqual('FGLQJCMBD')
   })
 })

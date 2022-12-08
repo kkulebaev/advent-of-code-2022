@@ -4,7 +4,7 @@ export interface Operation {
   to: number
 }
 
-export type StackOfCrates = string[]
+type StackOfCrates = string[]
 export type StacksOfCrates = StackOfCrates[]
 
 export const INITIAL_STACKS: StacksOfCrates = [

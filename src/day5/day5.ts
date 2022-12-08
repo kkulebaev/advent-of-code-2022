@@ -22,11 +22,24 @@ export function getCrateEndsUpOnTop(
   return data.reduce((acc, item) => acc + item.at(-1), '')
 }
 
+/*
+  ============== part2 ==============
+*/
 
-    if (topElement) {
-      result.push(topElement)
-    }
+export function getCrateEndsUpOnTop2(
+  stacks: StacksOfCrates,
+  operations: Operation[]
+): string {
+  const data: StacksOfCrates = JSON.parse(JSON.stringify(stacks))
+
+  operations.forEach(operation => {
+    const stack = data[operation.from - 1]
+    const rearrangementElements = stack.splice(
+      stack.length - operation.quantity,
+      operation.quantity
+    )
+    data[operation.to - 1].push(...rearrangementElements)
   })
 
-  return result.reduce((acc, item) => acc + item, '')
+  return data.reduce((acc, item) => acc + item.at(-1), '')
 }
