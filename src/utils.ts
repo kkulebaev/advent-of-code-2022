@@ -2,14 +2,12 @@ import fs from 'fs'
 import path from 'path'
 import type { AllElvesCarryingCalories } from './day1/constants'
 import type { ShapePairs } from './day2/constants'
-import type { EncryptedString } from './day3/constants'
 import type { PairElf } from './day4/constants'
 import type { Operation } from './day5/constants'
 
 export function readFileDay1(pathFile: string): AllElvesCarryingCalories {
-  const pathInput = path.resolve(pathFile)
+  const inputString = readFileToString(pathFile)
 
-  const inputString = fs.readFileSync(pathInput, 'utf-8')
   const inputArray = inputString
     .split('\n\n')
     .map(data => data.split('\n').map(x => +x))
@@ -18,30 +16,21 @@ export function readFileDay1(pathFile: string): AllElvesCarryingCalories {
 }
 
 export function readFileDay2(pathFile: string): ShapePairs[] {
-  const pathInput = path.resolve(pathFile)
+  const inputString = readFileToString(pathFile)
+  const inputByNewLine = splitByNewLine(inputString)
 
-  const inputString = fs.readFileSync(pathInput, 'utf-8')
-  const inputArray = inputString
-    .split('\n')
-    .map(data => data.split(' ')) as ShapePairs[]
-
-  return inputArray
+  return inputByNewLine.map(data => data.split(' ')) as ShapePairs[]
 }
 
-export function readFileDay3(pathFile: string): EncryptedString[] {
-  const pathInput = path.resolve(pathFile)
-
-  const inputString = fs.readFileSync(pathInput, 'utf-8')
-  const inputArray = inputString.split('\n')
-
-  return inputArray
+export function readFileSplitedByLine(pathFile: string): string[] {
+  return splitByNewLine(readFileToString(pathFile))
 }
 
 export function readFileDay4(pathFile: string): PairElf[] {
-  const pathInput = path.resolve(pathFile)
+  const inputString = readFileToString(pathFile)
+  const inputByNewLine = splitByNewLine(inputString)
 
-  const inputString = fs.readFileSync(pathInput, 'utf-8')
-  const inputArray = inputString.split('\n').map(x => {
+  const inputArray = inputByNewLine.map(x => {
     const [elf1, elf2] = x.split(',').map(y => {
       const [start, end] = y.split('-')
       return { start: +start, end: +end }
@@ -53,10 +42,10 @@ export function readFileDay4(pathFile: string): PairElf[] {
 }
 
 export function readFileDay5(pathFile: string): Operation[] {
-  const pathInput = path.resolve(pathFile)
+  const inputString = readFileToString(pathFile)
+  const inputByNewLine = splitByNewLine(inputString)
 
-  const inputString = fs.readFileSync(pathInput, 'utf-8')
-  const inputArray = inputString.split('\n').map(x => {
+  const inputArray = inputByNewLine.map(x => {
     const [quantity, from, to] = x
       .split(' ')
       .map(y => +y)
@@ -84,4 +73,8 @@ export const chunkedArray = <T>(array: Array<T>, size: number) => {
   }
 
   return chunckedArray
+}
+
+function splitByNewLine(str: string): string[] {
+  return str.split('\n')
 }
