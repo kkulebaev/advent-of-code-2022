@@ -19,39 +19,47 @@ export function getCountVisibleTrees(data: TreePlace) {
         continue
       }
 
-      console.log(height)
+      const { isVisible: isTopVisible } = checkTopVisible(height, i, j, data)
 
-      if (checkTopVisible(height, i, j, data)) {
+      if (isTopVisible) {
         counter++
         continue
       }
 
-      console.log(height)
+      const { isVisible: isLeftVisible } = checkLeftVisible(height, i, j, data)
 
-      if (checkLeftVisible(height, i, j, data)) {
+      if (isLeftVisible) {
         counter++
         continue
       }
 
-      console.log(height)
+      const { isVisible: isDownVisible } = checkDownVisible(height, i, j, data)
 
-      if (checkDownVisible(height, i, j, data)) {
+      if (isDownVisible) {
         counter++
         continue
       }
 
-      console.log(height)
+      const { isVisible: isRightVisible } = checkRightVisible(
+        height,
+        i,
+        j,
+        data
+      )
 
-      if (checkRightVisible(height, i, j, data)) {
+      if (isRightVisible) {
         counter++
         continue
       }
-
-      console.log(height)
     }
   }
 
   return counter
+}
+
+interface VisibleScore {
+  isVisible: boolean
+  score: number
 }
 
 function checkTopVisible(
@@ -59,16 +67,19 @@ function checkTopVisible(
   rowPos: number,
   colPos: number,
   treePlace: TreePlace
-): boolean {
+): VisibleScore {
+  let score = 0
   let isVisible = true
 
   for (let i = rowPos - 1; i >= 0; i--) {
+    score++
+
     if (height <= treePlace[i][colPos]) {
-      return false
+      return { isVisible: false, score }
     }
   }
 
-  return isVisible
+  return { isVisible, score }
 }
 
 function checkLeftVisible(
@@ -76,16 +87,19 @@ function checkLeftVisible(
   rowPos: number,
   colPos: number,
   treePlace: TreePlace
-): boolean {
+): VisibleScore {
+  let score = 0
   let isVisible = true
 
   for (let i = colPos - 1; i >= 0; i--) {
+    score++
+
     if (height <= treePlace[rowPos][i]) {
-      return false
+      return { isVisible: false, score }
     }
   }
 
-  return isVisible
+  return { isVisible, score }
 }
 
 function checkDownVisible(
@@ -93,18 +107,21 @@ function checkDownVisible(
   rowPos: number,
   colPos: number,
   treePlace: TreePlace
-): boolean {
+): VisibleScore {
+  let score = 0
   let isVisible = true
 
   const colCount = treePlace.length
 
   for (let i = rowPos + 1; i < colCount; i++) {
+    score++
+
     if (height <= treePlace[i][colPos]) {
-      return false
+      return { isVisible: false, score }
     }
   }
 
-  return isVisible
+  return { isVisible, score }
 }
 
 function checkRightVisible(
@@ -112,16 +129,51 @@ function checkRightVisible(
   rowPos: number,
   colPos: number,
   treePlace: TreePlace
-): boolean {
+): VisibleScore {
+  let score = 0
   let isVisible = true
 
   const rowCount = treePlace[0].length
 
   for (let i = colPos + 1; i < rowCount; i++) {
+    score++
+
     if (height <= treePlace[rowPos][i]) {
-      return false
+      return { isVisible: false, score }
     }
   }
 
-  return isVisible
+  return { isVisible, score }
+}
+
+export function getHighestScenicScore(data: TreePlace): number {
+  let highestScore = 0
+
+  for (let i = 0; i < data.length; i++) {
+    const row = data[i]
+
+    for (let j = 0; j < row.length; j++) {
+      const height = row[j]
+
+      const { score: topScore } = checkTopVisible(height, i, j, data)
+      if (topScore === 0) continue
+
+      const { score: leftScore } = checkLeftVisible(height, i, j, data)
+      if (leftScore === 0) continue
+
+      const { score: downScore } = checkDownVisible(height, i, j, data)
+      if (downScore === 0) continue
+
+      const { score: rightScore } = checkRightVisible(height, i, j, data)
+      if (rightScore === 0) continue
+
+      const scoreResult = topScore * leftScore * downScore * rightScore
+
+      if (scoreResult > highestScore) {
+        highestScore = scoreResult
+      }
+    }
+  }
+
+  return highestScore
 }
