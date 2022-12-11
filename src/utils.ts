@@ -4,6 +4,7 @@ import type { AllElvesCarryingCalories } from './day1/constants'
 import type { ShapePairs } from './day2/constants'
 import type { PairElf } from './day4/constants'
 import type { Operation } from './day5/constants'
+import type { TreePlace } from './day8/constants'
 
 export function readFileDay1(pathFile: string): AllElvesCarryingCalories {
   const inputString = readFileToString(pathFile)
@@ -53,6 +54,15 @@ export function readFileDay5(pathFile: string): Operation[] {
 
     return { quantity, from, to }
   })
+
+  return inputArray
+}
+
+export function readFileDay8(pathFile: string): TreePlace {
+  const inputString = readFileToString(pathFile)
+  const inputByNewLine = splitByNewLine(inputString)
+
+  const inputArray = inputByNewLine.map(x => x.split('').map(y => +y))
 
   return inputArray
 }
