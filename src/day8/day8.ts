@@ -1,4 +1,4 @@
-import { TreePlace } from './constants'
+import { TreePlace, VisibleScore } from './constants'
 
 export function getCountVisibleTrees(data: TreePlace) {
   let counter = 0
@@ -9,12 +9,10 @@ export function getCountVisibleTrees(data: TreePlace) {
     for (let j = 0; j < row.length; j++) {
       const height = row[j]
 
-      if (i === 0 || i === data.length - 1) {
-        counter++
-        continue
-      }
+      const outsideEl =
+        i === 0 || i === data.length - 1 || j === 0 || j === row.length - 1
 
-      if (j === 0 || j === row.length - 1) {
+      if (outsideEl) {
         counter++
         continue
       }
@@ -57,11 +55,6 @@ export function getCountVisibleTrees(data: TreePlace) {
   return counter
 }
 
-interface VisibleScore {
-  isVisible: boolean
-  score: number
-}
-
 function checkTopVisible(
   height: number,
   rowPos: number,
@@ -70,13 +63,16 @@ function checkTopVisible(
 ): VisibleScore {
   let score = 0
   let isVisible = true
+  let i = rowPos - 1
 
-  for (let i = rowPos - 1; i >= 0; i--) {
+  while (i >= 0) {
     score++
 
     if (height <= treePlace[i][colPos]) {
       return { isVisible: false, score }
     }
+
+    i--
   }
 
   return { isVisible, score }
@@ -90,13 +86,16 @@ function checkLeftVisible(
 ): VisibleScore {
   let score = 0
   let isVisible = true
+  let i = colPos - 1
 
-  for (let i = colPos - 1; i >= 0; i--) {
+  while (i >= 0) {
     score++
 
     if (height <= treePlace[rowPos][i]) {
       return { isVisible: false, score }
     }
+
+    i--
   }
 
   return { isVisible, score }
@@ -110,15 +109,17 @@ function checkDownVisible(
 ): VisibleScore {
   let score = 0
   let isVisible = true
-
+  let i = rowPos + 1
   const colCount = treePlace.length
 
-  for (let i = rowPos + 1; i < colCount; i++) {
+  while (i < colCount) {
     score++
 
     if (height <= treePlace[i][colPos]) {
       return { isVisible: false, score }
     }
+
+    i++
   }
 
   return { isVisible, score }
@@ -132,15 +133,17 @@ function checkRightVisible(
 ): VisibleScore {
   let score = 0
   let isVisible = true
-
+  let i = colPos + 1
   const rowCount = treePlace[0].length
 
-  for (let i = colPos + 1; i < rowCount; i++) {
+  while (i < rowCount) {
     score++
 
     if (height <= treePlace[rowPos][i]) {
       return { isVisible: false, score }
     }
+
+    i++
   }
 
   return { isVisible, score }
