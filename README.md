@@ -1,4 +1,5 @@
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/kkulebaev/advent-of-code-2022/tests.yml)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/kkulebaev/advent-of-code-2022/tests.yml?style=for-the-badge&label=TESTS)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=FFF)
 
 # 🎄 Advent of Code 2022 🎁
 
@@ -10,7 +11,6 @@ A set of Christmas-oriented challenges provides any input you have to use to ans
 
 This repository contains my solutions to the [Advent of Code 2022][aoc2022] puzzles.
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=FFF)
 
 [aoc]: https://adventofcode.com
 [aoc2022]: https://adventofcode.com/2022
