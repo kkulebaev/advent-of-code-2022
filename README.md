@@ -1,3 +1,5 @@
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/kkulebaev/advent-of-code-2022/tests.yml)
+
 # 🎄 Advent of Code 2022 🎁
 
 ![Advent Of Code](https://cdn.thenewstack.io/media/2021/12/521cd034-advent-of-code-2021.jpg)
