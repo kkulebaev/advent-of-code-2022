@@ -1,5 +1,7 @@
 import fs from 'fs'
 import path from 'path'
+import os from 'os'
+
 import type { AllElvesCarryingCalories } from './day1/constants'
 import type { ShapePairs } from './day2/constants'
 import type { PairElf } from './day4/constants'
@@ -10,8 +12,8 @@ export function readFileDay1(pathFile: string): AllElvesCarryingCalories {
   const inputString = readFileToString(pathFile)
 
   const inputArray = inputString
-    .split('\n\n')
-    .map(data => data.split('\n').map(x => +x))
+    .split(os.EOL + os.EOL)
+    .map(data => data.split(os.EOL).map(x => +x))
 
   return inputArray
 }
