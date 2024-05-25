@@ -8,8 +8,7 @@
     "node": "^20.0.0"
   },
   "scripts": {
-    "test": "vitest run",
-    "test:watch": "vitest run --watch"
+    "test": "vitest ./src"
   },
   "keywords": [],
   "author": "kkulebaev<konstantinkulebaev@gmail.com>",
