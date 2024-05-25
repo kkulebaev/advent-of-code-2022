@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "vitest ./src",
-    "fmt": "prettier ./src --write"
+    "fmt": "prettier ./src --write",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "kkulebaev<konstantinkulebaev@gmail.com>",
