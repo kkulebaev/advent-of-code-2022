@@ -8,7 +8,8 @@
     "node": "^20.0.0"
   },
   "scripts": {
-    "test": "vitest ./src"
+    "test": "vitest ./src",
+    "fmt": "prettier ./src --write"
   },
   "keywords": [],
   "author": "kkulebaev<konstantinkulebaev@gmail.com>",
