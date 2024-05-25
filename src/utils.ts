@@ -86,5 +86,5 @@ export const chunkedArray = <T>(array: Array<T>, size: number) => {
 }
 
 function splitByNewLine(str: string): string[] {
-  return str.split('\n')
+  return str.split(os.EOL)
 }
