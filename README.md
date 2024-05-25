@@ -1,6 +1,6 @@
-![Advent Of Code](https://cdn.thenewstack.io/media/2021/12/521cd034-advent-of-code-2021.jpg)
-
 # 🎄 Advent of Code 2022 🎁
+
+![Advent Of Code](https://cdn.thenewstack.io/media/2021/12/521cd034-advent-of-code-2021.jpg)
 
 [Advent of Code][aoc] – an annual event in December since 2015.
 Every year since then, with the first day of December, a programming puzzles contest is published every day for twenty-four days.
