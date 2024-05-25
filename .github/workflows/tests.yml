@@ -26,4 +26,4 @@ jobs:
       - name: Install dependencies
         run: corepack pnpm install
       - name: Run tests
-        run: pnpm run test
+        run: corepack pnpm run test
