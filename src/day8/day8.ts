@@ -9,8 +9,7 @@ export function getCountVisibleTrees(data: TreePlace) {
     for (let j = 0; j < row.length; j++) {
       const height = row[j]
 
-      const outsideEl =
-        i === 0 || i === data.length - 1 || j === 0 || j === row.length - 1
+      const outsideEl = i === 0 || i === data.length - 1 || j === 0 || j === row.length - 1
 
       if (outsideEl) {
         counter++
@@ -38,12 +37,7 @@ export function getCountVisibleTrees(data: TreePlace) {
         continue
       }
 
-      const { isVisible: isRightVisible } = checkRightVisible(
-        height,
-        i,
-        j,
-        data
-      )
+      const { isVisible: isRightVisible } = checkRightVisible(height, i, j, data)
 
       if (isRightVisible) {
         counter++

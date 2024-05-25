@@ -3,10 +3,7 @@ import type { Operation, StacksOfCrates } from './constants'
 /*
   ============== part1 ==============
 */
-export function getCrateEndsUpOnTop(
-  stacks: StacksOfCrates,
-  operations: Operation[]
-): string {
+export function getCrateEndsUpOnTop(stacks: StacksOfCrates, operations: Operation[]): string {
   const data: StacksOfCrates = JSON.parse(JSON.stringify(stacks))
 
   operations.forEach(operation => {
@@ -26,10 +23,7 @@ export function getCrateEndsUpOnTop(
   ============== part2 ==============
 */
 
-export function getCrateEndsUpOnTop2(
-  stacks: StacksOfCrates,
-  operations: Operation[]
-): string {
+export function getCrateEndsUpOnTop2(stacks: StacksOfCrates, operations: Operation[]): string {
   const data: StacksOfCrates = JSON.parse(JSON.stringify(stacks))
 
   operations.forEach(operation => {

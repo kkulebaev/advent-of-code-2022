@@ -29,10 +29,7 @@ export function totalScoreOfStrategyGuide(data: ShapePairs[]): Score {
   return totalScore
 }
 
-function getScoreOfGame(
-  oppShape: RockPaperScissors,
-  yourShape: RockPaperScissors
-): Score {
+function getScoreOfGame(oppShape: RockPaperScissors, yourShape: RockPaperScissors): Score {
   const yourShapeScore = RockPaperScissorsNum[yourShape]
 
   if (oppShape === yourShape) return ResultScore.draw + yourShapeScore
@@ -87,10 +84,7 @@ export function totalScoreOfStrategyGuide2(data: ShapePairs[]): Score {
   return totalScore
 }
 
-function getScoreOfGame2(
-  oppShape: RockPaperScissors,
-  result: ResultGame
-): Score {
+function getScoreOfGame2(oppShape: RockPaperScissors, result: ResultGame): Score {
   switch (result) {
     case ResultGame.draw:
       return ResultScore.draw + RockPaperScissorsNum[oppShape]

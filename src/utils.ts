@@ -11,9 +11,7 @@ import type { TreePlace } from './day8/constants'
 export function readFileDay1(pathFile: string): AllElvesCarryingCalories {
   const inputString = readFileToString(pathFile)
 
-  const inputArray = inputString
-    .split(os.EOL + os.EOL)
-    .map(data => data.split(os.EOL).map(x => +x))
+  const inputArray = inputString.split(os.EOL + os.EOL).map(data => data.split(os.EOL).map(x => +x))
 
   return inputArray
 }

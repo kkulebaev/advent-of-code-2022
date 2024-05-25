@@ -1,7 +1,4 @@
-export function detectStartOfPacketMarker(
-  datastream: string,
-  uniqQuantity = 4
-): number {
+export function detectStartOfPacketMarker(datastream: string, uniqQuantity = 4): number {
   const streamLetters = datastream.split('')
   let resultIndex = -1
 

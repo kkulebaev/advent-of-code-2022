@@ -5,9 +5,7 @@ import { sum } from '../utils'
   ============== part1 ==============
 */
 
-export function findElfCarryingTheMostCalories(
-  data: AllElvesCarryingCalories
-): FoodCalories {
+export function findElfCarryingTheMostCalories(data: AllElvesCarryingCalories): FoodCalories {
   let max = 0
 
   data.forEach(el => {

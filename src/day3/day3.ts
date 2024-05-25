@@ -1,9 +1,4 @@
-import {
-  EncryptedString,
-  Alphabet,
-  AlphabetLetters,
-  AlphabetLetter,
-} from './constants'
+import { EncryptedString, Alphabet, AlphabetLetters, AlphabetLetter } from './constants'
 
 import { chunkedArray } from '../utils'
 
