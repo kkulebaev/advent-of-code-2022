@@ -1,7 +1,7 @@
 {
   "name": "advent-of-code-2022",
   "version": "1.0.0",
-  "description": "",
+  "description": "This repository contains solutions to the Advent of Code 2022 puzzles",
   "main": "index.js",
   "type": "module",
   "engines": {
